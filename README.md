@@ -9,3 +9,18 @@ This portfolio project demonstrates practical techniques in wind turbine perform
 * **Empirical Power Curve Analysis:** Isolate normal turbine operation from curtailment and downtime using filtering algorithms.
 * **Environmental Assessment:** Map site wind resource distributions using wind roses and directional sector analysis.
 * **Operational Anomalies:** Analyze SCADA telemetry during documented maintenance/fault events.
+
+## 📊 Sample Visualizations
+*(Include key high-resolution plots generated during your analysis)*
+
+| Empirical Power Curve | Site Wind Rose |
+| :---: | :---: |
+| ![Power Curve](notebooks/plots/power_curve.png) | ![Wind Rose](notebooks/plots/wind_rose.png) |
+
+## 🛠️ Tech Stack & Methods
+* **Language:** Python 3.10+
+* **Data Processing:** `pandas`, `numpy`
+* **Visualization:** `matplotlib`, `seaborn`, `plotly`, `windrose`
+* **Domain Tools:** OpenWindSCADA signal mapping concepts
+
+## 🚀 Getting Started
