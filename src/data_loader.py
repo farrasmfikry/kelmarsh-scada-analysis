@@ -6,8 +6,7 @@ def load_scada_data(file_path: str | Path) -> pd.DataFrame:
     if not path.exists():
         raise FileNotFoundError(f"File not found at: {path}")
     #read CSV
-    # The first nine lines are metadata; line 10 is the header, including its
-    # leading "#" marker in Greenbyte exports.
+    # The first nine lines are metadata; line 10 is the header, including its leading "#" marker in Greenbyte exports.
     df = pd.read_csv(path, skiprows=9)
     df.columns = df.columns.str.lstrip("#").str.strip()
     
