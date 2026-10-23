@@ -1,8 +1,6 @@
 # Kelmarsh Scada Analysis
 An end-to-end Python data analysis repository exploring SCADA telemetry from the Kelmarsh Wind Farm (6x Senvion MM92 turbines)
 
----
-
 ## 📌 Project Overview
 This portfolio project demonstrates practical techniques in wind turbine performance monitoring, operational data cleaning, empirical power curve generation, and operational anomaly detection.
 
