@@ -7,7 +7,7 @@
 #
 # Kelmarsh 2 Sum production: 6872622.509615384 kWh
 #
-# Timestamp start,Timestamp end,Duration,Status,Code,Message,Comment,Service contract category,IEC category
+Timestamp start,Timestamp end,Duration,Status,Code,Message,Comment,Service contract category,IEC category
 2020-01-01 08:37:46,2020-01-01 08:38:33,00:00:47,Informational,10,Wind < start wind,,External stop (low wind speed)  (5),Out of Environmental Specification
 2020-01-01 08:37:46,-,-,Informational,100070,Brake program 50,,,Out of Environmental Specification
 2020-01-01 08:38:33,-,-,Informational,0,System OK,,System OK (32),Full Performance
