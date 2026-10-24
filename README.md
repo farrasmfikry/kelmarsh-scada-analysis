@@ -2,7 +2,7 @@
 An end-to-end Python data analysis repository exploring SCADA telemetry from the Kelmarsh Wind Farm (6x Senvion MM92 turbines)
 
 ## 📌 Project Overview
-This portfolio project demonstrates practical techniques in wind turbine performance monitoring, operational data cleaning, empirical power curve generation, and operational anomaly detection.
+This project demonstrates practical techniques in wind turbine performance monitoring, operational data cleaning, empirical power curve generation, and operational anomaly detection.
 
 ### Key Objectives:
 * **Data Quality & Availability:** Preprocess, resample, and audit raw 10-minute SCADA logs.
