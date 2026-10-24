@@ -17,11 +17,9 @@ This project demonstrates practical techniques in wind turbine performance monit
 | :---: | :---: |
 | ![Power Curve](notebooks/plots/power_curve.png) | ![Wind Rose](notebooks/plots/wind_rose.png) |
 
-## 🛠️ Tech Stack & Methods
-* **Language:** Python 3.10+
-* **Data Processing:** `pandas`, `numpy`
-* **Visualization:** `matplotlib`, `seaborn`, `plotly`, `windrose`
-* **Domain Tools:** OpenWindSCADA signal mapping concepts
+## 📜 Acknowledgments
+* **SCADA dataset provided open-access by Cubico Sustainable Investments.
+* **Workflows adapted from the open-source OpenWindSCADA project.
 
 ## 🚀 Getting Started
 *What is Power Curve?
