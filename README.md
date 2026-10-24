@@ -24,3 +24,4 @@ This portfolio project demonstrates practical techniques in wind turbine perform
 * **Domain Tools:** OpenWindSCADA signal mapping concepts
 
 ## 🚀 Getting Started
+*What is Power Curve?
