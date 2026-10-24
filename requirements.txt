@@ -3,5 +3,5 @@ numpy>=1.24.0
 matplotlib>=3.7.0
 seaborn>=0.12.0
 plotly>=5.14.0
-windrose>=1.6.8
+windrose>=26.2.2
 jupyterlab
