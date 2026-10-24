@@ -1,1 +1,2 @@
+*.psd filter=lfs diff=lfs merge=lfs -text
 data/Turbine_Data_Kelmarsh_*.csv filter=lfs diff=lfs merge=lfs -text
