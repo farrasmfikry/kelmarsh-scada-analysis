@@ -18,8 +18,8 @@ This project demonstrates practical techniques in wind turbine performance monit
 | ![Power Curve](notebooks/plots/power_curve.png) | ![Wind Rose](notebooks/plots/wind_rose.png) |
 
 ## 📜 Acknowledgments
-* **SCADA dataset provided open-access by Cubico Sustainable Investments.
-* **Workflows adapted from the open-source OpenWindSCADA project.
+* SCADA dataset provided open-access by Cubico Sustainable Investments.
+* Workflows adapted from the open-source OpenWindSCADA project.
 
 ## 🚀 Getting Started
 *What is Power Curve?
