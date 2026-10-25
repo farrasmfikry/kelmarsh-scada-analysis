@@ -30,12 +30,13 @@ Real-world SCADA data is notoriously messy, filled with missing timestamps, and 
 
 For this project, we simplify by only excluding missing timestamps and Power = NaN from our calculation.
 ### 2. Power Curve
-The relationship between wind speed and active power is a fundamental performance analysis of a wind turbine.
+The relationship between wind speed and active power is a fundamental performance analysis of a wind turbine. 
 
 ### 3. Wind Rose
-The
+The Wind rose can reveal the dominant wind direction and the most frequent wind origin. 
 
 ### 4. Anomaly Time-series
-The
+We identify unexpected patterns, rare behaviour or signals that deviate significantly from normal operating conditions.
+
 
 ![Dashboard](notebooks/plots/dashboards/dashboard_turbine_1.png)
