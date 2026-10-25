@@ -23,4 +23,5 @@ This project demonstrates practical techniques in wind turbine performance monit
 
 ## 🚀 Getting Started
 1. SCADA Dataset Cleaning
-Dtata 
+   Data
+
