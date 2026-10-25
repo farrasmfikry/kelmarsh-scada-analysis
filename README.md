@@ -38,4 +38,4 @@ The
 ### 4. Anomaly Time-series
 The
 
-![Power Curve](notebooks/plots/power_curve.png)
+![Dashboard](notebooks/plots/dashboards/dashboard_turbine_1.png)
