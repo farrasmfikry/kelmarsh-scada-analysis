@@ -13,9 +13,9 @@ This project demonstrates practical techniques in wind turbine performance monit
 ## 📊 Sample Visualizations
 *(Include key high-resolution plots generated during your analysis)*
 
-| Empirical Power Curve | Site Wind Rose |
-| :---: | :---: |
-| ![Power Curve](notebooks/plots/power_curve.png) | ![Wind Rose](notebooks/plots/wind_rose.png) |
+| Empirical Power Curve | Site Wind Rose | Anomaly Detection time-series |
+| :---: | :---: | :---: |
+| ![Power Curve](notebooks/plots/power_curve.png) | ![Wind Rose](notebooks/plots/wind_rose.png) | ![Time_Series](notebooks/plots/time_series.png) |
 
 ## 📜 Acknowledgments
 * SCADA dataset provided open-access by Cubico Sustainable Investments. Source: https://zenodo.org/records/5841834#.YgpBQ_so-V7
