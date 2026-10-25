@@ -28,7 +28,7 @@ Real-world SCADA data is notoriously messy, filled with missing timestamps, and 
 * **Operational State Filtering:**  Remove data when the turbine is completely stopped or throttled. For example, because of maintenance (High Wind speed but active power = 0 kW) and Curtailment (High wind speed but artificially capped to 500 kW)
 * **Sensor fault:**  If an anemometer detects wind direction for exactly the same decimal value for 20 consecutive records
 
-For this project, we simplify by only excluding missing timestamps and Power(kw) = NaN from our calculation.
+For this project, we simplify by only excluding missing timestamps and Power = NaN from our calculation.
 ### 2. Power Curve
 The relationship between wind speed and active power is a fundamental performance analysis of a wind turbine.
 
