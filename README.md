@@ -32,4 +32,10 @@ For this project, we simplify by only excluding missing timestamps and Power = N
 ### 2. Power Curve
 The relationship between wind speed and active power is a fundamental performance analysis of a wind turbine.
 
+### 3. Wind Rose
+The
 
+### 4. Anomaly Time-series
+The
+
+![Power Curve](notebooks/plots/power_curve.png)
