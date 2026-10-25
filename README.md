@@ -22,4 +22,4 @@ This project demonstrates practical techniques in wind turbine performance monit
 * Workflows adapted from the open-source OpenWindSCADA project.
 
 ## 🚀 Getting Started
-*What is Power Curve?
+* SCADA Datasets Cleaning 
