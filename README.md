@@ -22,6 +22,6 @@ This project demonstrates practical techniques in wind turbine performance monit
 * Workflows adapted from the open-source OpenWindSCADA project.
 
 ## 🚀 Getting Started
-1. SCADA Dataset Cleaning
-   Data
+### 1. SCADA Datset cleaning
+sjsjs
 
