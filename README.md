@@ -18,7 +18,7 @@ This project demonstrates practical techniques in wind turbine performance monit
 | ![Power Curve](notebooks/plots/power_curve.png) | ![Wind Rose](notebooks/plots/wind_rose.png) | ![Time_Series](notebooks/plots/time_series.png) |
 
 ## 📜 Acknowledgments
-* SCADA dataset provided open-access by Cubico Sustainable Investments.Source: https://zenodo.org/records/5841834#.YgpBQ_so-V7
+* SCADA dataset provided open-access by Cubico Sustainable Investments. Source: https://zenodo.org/records/5841834#.YgpBQ_so-V7
 * Workflows adapted from the open-source OpenWindSCADA project.
 
 ## 🚀 Getting Started
