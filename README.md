@@ -22,8 +22,12 @@ This project demonstrates practical techniques in wind turbine performance monit
 * Workflows adapted from the open-source OpenWindSCADA project.
 
 ## 🚀 Getting Started
-### 1. SCADA Dataset cleaning
+### 1. SCADA Dataset Cleaning
 Real-world SCADA data is notoriously messy, filled with missing timestamps, and scattered. For this, we implemented several data cleaning approaches in a script
-* **Alignment & Missing Timestamps:** SCADA system log data is recorded every 10 minutes and often creates missing rows or irregular time intervals. We reindex to continuous stict 10-minute frequency and explicitly identify missing timestamps.
+* **Alignment & Missing Timestamps:** SCADA system log data is recorded every 10 minutes and often creates missing rows or irregular time intervals. We reindex to a continuous strict 10-minute frequency and explicitly identify missing timestamps.
+* **Operational State Filtering:**  Remove data when the turbine is completely stopped or throttled. For example, because of maintenance (High Wind speed but active power = 0 kW) and Curtailment (High wind speed but artificially capped to 500 kW)
+* **Sensor fault:**  If an anemometer detects wind direction for exactly the same decimal value for 20 consecutive records
+### 2. Power Curve
+The relationship between wind speed and active power is a fundamental performance analysis of a wind turbine.
 
 
