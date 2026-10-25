@@ -24,6 +24,6 @@ This project demonstrates practical techniques in wind turbine performance monit
 ## 🚀 Getting Started
 ### 1. SCADA Dataset cleaning
 Real-world SCADA data is notoriously messy, filled with missing timestamps, and scattered. For this, we implemented several data cleaning approaches in a script
-* ** Alignment & Missing Timestamps:** SCADA system log data is recorded every 10 minutes and often creates missing rows or irregular time intervals. We reindex to continuous stict 10-minute frequency and explicitly identify missing timestamps.
+* **Alignment & Missing Timestamps:** SCADA system log data is recorded every 10 minutes and often creates missing rows or irregular time intervals. We reindex to continuous stict 10-minute frequency and explicitly identify missing timestamps.
 
 
