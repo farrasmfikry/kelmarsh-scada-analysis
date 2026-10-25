@@ -13,7 +13,7 @@ This project demonstrates practical techniques in wind turbine performance monit
 ## 📊 Sample Visualizations
 *(Include key high-resolution plots generated during your analysis)*
 
-| Empirical Power Curve | Site Wind Rose | Anomaly Detection Time-series |
+| Empirical Power Curve | Site Wind Rose | Anomaly Detection Time-Series |
 | :---: | :---: | :---: |
 | ![Power Curve](notebooks/plots/power_curve.png) | ![Wind Rose](notebooks/plots/wind_rose.png) | ![Time_Series](notebooks/plots/time_series.png) |
 
