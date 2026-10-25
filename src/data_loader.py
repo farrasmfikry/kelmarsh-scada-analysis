@@ -24,7 +24,7 @@ def load_scada_data(file_path: str | Path) -> pd.DataFrame:
 
     return df
 
-def filter_operational_data(df: pd.DataFrame, power_col: str = 'ActivePower_Avg', wind_speed_col: str = 'WindSpeed_Avg') ->pd.DataFrame:
+def filter_operational_data(df: pd.DataFrame, power_col: str = 'Power (kW)', wind_speed_col: str = 'Wind speed (m/s)') ->pd.DataFrame:
  
     cleaned_df = df.copy()
 
@@ -33,5 +33,5 @@ def filter_operational_data(df: pd.DataFrame, power_col: str = 'ActivePower_Avg'
         cleaned_df = cleaned_df[cleaned_df[power_col] >= 0]
 
     return cleaned_df
-           
-                
+
+

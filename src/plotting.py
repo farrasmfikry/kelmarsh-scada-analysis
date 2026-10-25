@@ -3,6 +3,7 @@ import pandas as pd
 import seaborn as sns
 import numpy as np
 from windrose import WindroseAxes
+import matplotlib.gridspec as gridspec
 
 sns.set_theme(style="whitegrid")
 
@@ -158,3 +159,111 @@ def plot_multi_turbine_power_curves(turbine_dfs: dict, wind_speed_col: str = 'Wi
     
     plt.tight_layout()
     return fig, ax
+
+def plot_turbine_diagnostic_dashboard(df: pd.DataFrame, turbine_name: str = 'Turbine', 
+                                      wind_col: str = 'Wind speed (m/s)', 
+                                      power_col: str = 'Power (kW)', 
+                                      dir_col: str = 'Wind direction (°)'):
+    """
+    Generates a multi-panel OpenWindSCADA diagnostic dashboard for a single turbine:
+    1. Measured Power Curve with deviation coloring.
+    2. Wind Rose (directional frequency).
+    3. Long-term Data Availability timeline.
+    """
+    # Create a figure with a custom GridSpec layout
+    fig = plt.figure(figsize=(14, 9))
+    gs = gridspec.GridSpec(2, 2, height_ratios=[1.2, 1], hspace=0.3, wspace=0.2)
+    
+    # ---------------------------------------------------------
+    # Panel 1: Measured Power Curve (Top-Left)
+    # ---------------------------------------------------------
+    ax1 = fig.add_subplot(gs[0, 0])
+    
+    valid_data = df[[wind_col, power_col]].dropna().copy()
+    
+    # Theoretical / Standard Power Curve lookup reference (approximate cubic curve for ~2MW turbine)
+    def standard_pc(v):
+        if v < 3 or v > 25: return 0
+        elif v >= 12: return 2000
+        else: return 2000 * ((v - 3) / (12 - 3)) ** 3
+        
+    valid_data['Expected_Power'] = valid_data[wind_col].apply(standard_pc)
+    valid_data['Power_Delta'] = valid_data[power_col] - valid_data['Expected_Power']
+    
+    sc = ax1.scatter(
+        valid_data[wind_col], valid_data[power_col], 
+        c=valid_data['Power_Delta'], cmap='viridis', 
+        alpha=0.4, s=12, edgecolor='none',vmin=-2000, vmax=500
+    )
+    
+    # Plot standard reference line
+    v_ref = np.linspace(0, 30, 100)
+    p_ref = [standard_pc(v) for v in v_ref]
+    ax1.plot(v_ref, p_ref, color='black', linewidth=1.5, label='Standard PC')
+    
+    ax1.set_title(f"Measured Power Curve - {turbine_name}", fontsize=12, fontweight='bold')
+    ax1.set_xlabel("Nacelle measured Wind Speed (m/s)")
+    ax1.set_ylabel("Power Output (kW)")
+    ax1.set_xlim(0, 30)
+    ax1.set_ylim(-100, 2200)
+    ax1.grid(True, alpha=0.3)
+    
+    cbar = plt.colorbar(sc, ax=ax1, fraction=0.046, pad=0.04)
+    cbar.set_label('Distance from Power Curve', rotation=270, labelpad=15)
+    
+    # ---------------------------------------------------------
+    # Panel 2: Wind Rose (Top-Right)
+    # ---------------------------------------------------------
+    # Create polar axes for windrose within the grid slot
+    ax2 = fig.add_subplot(gs[0, 1], projection='windrose')
+    rose_data = df[[wind_col, dir_col]].dropna()
+    
+    if not rose_data.empty:
+        ax2.bar(
+            rose_data[dir_col].values, 
+            rose_data[wind_col].values, 
+            normed=True, opening=0.8, edgecolor='white', 
+            bins=np.arange(0, 25, 5), cmap=plt.cm.viridis
+        )
+        ax2.set_legend(loc="upper right", bbox_to_anchor=(1.25, 1.0), title="Wind Speed (m/s)")
+    ax2.set_title(f"Wind Direction & Speed Frequency - {turbine_name}", fontsize=12, fontweight='bold', va='bottom')
+
+    # ---------------------------------------------------------
+    # Panel 3: Data Availability Timeline (Bottom Full-Width)
+    # ---------------------------------------------------------
+    ax3 = fig.add_subplot(gs[1, :])
+    
+    # Resample to daily frequency to check availability uptime blocks
+    full_timeline = pd.date_range(start=df.index.min(), end=df.index.max(), freq='D')
+    daily_counts = df[power_col].resample('D').count()
+    
+    # If 10-min data has at least 100 points a day (~70% uptime), mark available (1), else unavailable (0)
+    availability = (daily_counts >= 100).reindex(full_timeline, fill_value=0)
+    
+    # Calculate exact power-data availability for the dashboard title.
+    expected_points = len(
+        pd.date_range(
+            start=df.index.min(),
+            end=df.index.max(),
+            freq='10min',
+        )
+    )
+    valid_power_points = df[power_col].notna().sum()
+    uptime_pct = (
+        valid_power_points / expected_points * 100
+        if expected_points > 0
+        else 0.0
+    )
+    
+    ax3.fill_between(availability.index, 0, availability.values, color='green', alpha=0.3, label='Data Available')
+    ax3.fill_between(availability.index, 0, (1 - availability.values), color='red', alpha=0.3, label='Data Unavailable')
+    
+    ax3.set_title(f"Data Availability — {uptime_pct:.1f}% Uptime", fontsize=12, fontweight='bold')
+    ax3.set_ylabel("Availability")
+    ax3.set_ylim(-0.05, 1.05)
+    ax3.legend(loc='lower center', ncol=2)
+    ax3.grid(True, alpha=0.3)
+
+    plt.suptitle(f"OpenWindSCADA Diagnostic Dashboard: {turbine_name}", fontsize=16, fontweight='bold', y=0.98)
+    plt.tight_layout()
+    return fig
