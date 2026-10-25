@@ -13,7 +13,7 @@ This project demonstrates practical techniques in wind turbine performance monit
 ## 📊 Sample Visualizations
 *(Include key high-resolution plots generated during your analysis)*
 
-| Empirical Power Curve | Site Wind Rose | Anomaly Detection Time-Series |
+| Empirical Power Curve | Site Wind Rose | Anomaly Detection Time-series |
 | :---: | :---: | :---: |
 | ![Power Curve](notebooks/plots/power_curve.png) | ![Wind Rose](notebooks/plots/wind_rose.png) | ![Time_Series](notebooks/plots/time_series.png) |
 
@@ -22,6 +22,8 @@ This project demonstrates practical techniques in wind turbine performance monit
 * Workflows adapted from the open-source OpenWindSCADA project.
 
 ## 🚀 Getting Started
-### 1. SCADA Datset cleaning
-sjsjs
+### 1. SCADA Dataset cleaning
+Real-world SCADA data is notoriously messy, filled with missing timestamps, and scattered. For this, we implemented several data cleaning approaches in a script
+* ** Alignment & Missing Timestamps:** SCADA system log data is recorded every 10 minutes and often creates missing rows or irregular time intervals. We reindex to continuous stict 10-minute frequency and explicitly identify missing timestamps.
+
 
